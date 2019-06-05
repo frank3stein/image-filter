@@ -34,7 +34,7 @@ import { join } from "path";
   app.get("/filteredimage", async (req: Request, res: Response) => {
     const image_url: string = req.query.image_url;
     if (!image_url) {
-      res.status(402).send("Image url is missing.");
+      res.status(400).send("Image url is missing.");
     }
     const filteredImage = await filterImageFromURL(image_url);
     res.status(200).sendFile(filteredImage);
